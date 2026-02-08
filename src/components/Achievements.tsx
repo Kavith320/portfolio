@@ -36,7 +36,7 @@ const Achievements = () => {
                 </div>
 
                 <div className={styles.grid}>
-                    {achievementsData.map((item, index) => (
+                    {achievementsData.map((item: any, index: number) => (
                         <motion.div
                             key={item.id}
                             initial={{ opacity: 0, y: 30 }}

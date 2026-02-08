@@ -20,7 +20,7 @@ const Ventures = () => {
             </div>
 
             <div className={styles.grid}>
-                {venturesData.map((venture, index) => (
+                {venturesData.map((venture: any, index: number) => (
                     <motion.div
                         key={venture.id}
                         initial={{ opacity: 0, scale: 0.95 }}

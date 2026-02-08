@@ -45,7 +45,7 @@ const Hero = () => {
                     transition={{ duration: 1, delay: 0.6 }}
                     className={styles.tags}
                 >
-                    {heroData.tags.map((tag, i) => (
+                    {heroData.tags.map((tag: any, i: number) => (
                         <span key={i} className={styles.tag}>{tag}</span>
                     ))}
                 </motion.div>

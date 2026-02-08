@@ -15,7 +15,7 @@ const Skills = () => {
             </div>
 
             <div className={styles.skillsGrid}>
-                {skillsData.map((skill, index) => (
+                {skillsData.map((skill: any, index: number) => (
                     <motion.div
                         key={skill.name}
                         initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ const Skills = () => {
                         </div>
                         <h4>{skill.name}</h4>
                         <div className={styles.skillItems}>
-                            {skill.items.map(item => (
+                            {skill.items.map((item: string) => (
                                 <span key={item} className={styles.skillTag}>{item}</span>
                             ))}
                         </div>

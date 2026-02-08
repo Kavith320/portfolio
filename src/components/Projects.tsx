@@ -21,7 +21,7 @@ const Projects = () => {
             </div>
 
             <div className={styles.grid}>
-                {projectsData.map((project, index) => (
+                {projectsData.map((project: any, index: number) => (
                     <motion.div
                         key={project.id}
                         initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ const Projects = () => {
                         </div>
                         <div className={styles.info}>
                             <div className={styles.tags}>
-                                {project.tags.map(tag => <span key={tag} className={styles.tag}>{tag}</span>)}
+                                {project.tags.map((tag: string) => <span key={tag} className={styles.tag}>{tag}</span>)}
                             </div>
                             <h4 className={styles.projectTitle}>{project.title}</h4>
                             <p className={styles.projectDesc}>{project.description}</p>
@@ -69,7 +69,7 @@ const Projects = () => {
                         <div className={styles.modalHeader}>
                             <h2 className={styles.modalTitle}>{selectedProject.title}</h2>
                             <div className={styles.modalTags}>
-                                {selectedProject.tags.map(tag => (
+                                {selectedProject.tags.map((tag: string) => (
                                     <span key={tag} className={styles.tag}>{tag}</span>
                                 ))}
                             </div>
