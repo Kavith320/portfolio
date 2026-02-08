@@ -1,0 +1,164 @@
+.achievements {
+    padding: 100px 24px;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    padding: 2.5rem;
+    border-radius: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+    box-shadow: 0 20px 40px -20px rgba(16, 185, 129, 0.3);
+}
+
+.iconWrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.achievementTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+}
+
+.description {
+    font-size: 1rem;
+    color: var(--foreground);
+    opacity: 0.7;
+    line-height: 1.6;
+}
+
+.year {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary);
+    background: rgba(16, 185, 129, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 100px;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.modalContent {
+    color: var(--foreground);
+}
+
+.modalHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.modalIcon {
+    width: 80px;
+    height: 80px;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.modalTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.modalInfoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.modalDescription {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    opacity: 0.8;
+    text-align: center;
+}
+
+@media (max-width: 640px) {
+    .modalTitle {
+        font-size: 1.8rem;
+    }
+
+    .modalInfoGrid {
+        grid-template-columns: 1fr;
+    }
+}

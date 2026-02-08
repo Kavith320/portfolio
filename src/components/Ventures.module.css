@@ -1,0 +1,167 @@
+.venturesSection {
+    padding: 100px 24px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.venturesCard {
+    padding: 3rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.venturesCard:hover {
+    transform: translateY(-8px);
+    border-color: var(--primary);
+}
+
+.ventureInfo h4 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.ventureInfo p {
+    font-size: 1.1rem;
+    color: var(--foreground);
+    opacity: 0.7;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.ventureTags {
+    display: flex;
+    gap: 1rem;
+}
+
+.ventureTags span {
+    padding: 0.4rem 1rem;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.2);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Modal Styles */
+.modalContent {
+    color: var(--foreground);
+}
+
+.modalHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.modalBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1.25rem;
+    background: rgba(16, 185, 129, 0.1);
+    border-radius: 100px;
+    color: var(--primary);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.modalTitle {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.modalInfoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.modalDescription {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    opacity: 0.8;
+    margin-bottom: 3rem;
+}
+
+.modalStats {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 2rem;
+}
+
+.statLine {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.statLabel {
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+}
+
+.statValue {
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .modalTitle {
+        font-size: 2rem;
+    }
+
+    .modalInfoGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .modalDescription {
+        font-size: 1.1rem;
+    }
+}

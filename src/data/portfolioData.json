@@ -1,0 +1,193 @@
+{
+    "hero": {
+        "badge": "Entrepreneur | Innovator",
+        "firstName": "Kavith",
+        "lastName": "Udapola",
+        "description": "Hi, I'm Kavith. I love using technology to fix real problems. I'm all about making things that actually work, don't cost a fortune, and fit right into life here in Sri Lanka.",
+        "tags": [
+            "🌱 Innovation",
+            "🚀 Solving",
+            "💡 Tech"
+        ]
+    },
+    "about": {
+        "subtitle": "Entrepreneur | Innovator | IoT & AgriTech Enthusiast",
+        "title": "Impact Driven",
+        "titleGradient": "Innovator",
+        "description": "I am an impact-driven innovator and entrepreneur dedicated to solving real-world problems through technology. With a deep passion for IoT and electronics, I focus on building practical, affordable solutions that make a tangible difference in people's lives. Based in Sri Lanka, my mission is to bridge the gap between advanced technology and accessibility, particularly within the agricultural and industrial sectors, ensuring that innovation empowers everyone, regardless of their location or budget.",
+        "stats": [
+            {
+                "number": "5+",
+                "label": "Years of Code"
+            },
+            {
+                "number": "10+",
+                "label": "Projects Built"
+            },
+            {
+                "number": "2",
+                "label": "Ventures Started"
+            }
+        ]
+    },
+    "projects": [
+        {
+            "id": "p1",
+            "title": "IoT Smart Garden",
+            "description": "I built this to automate plant care using an ESP8266. It tracks everything in real-time so you never forget to water your plants.",
+            "longDescription": "A comprehensive IoT solution for home gardening. It uses soil moisture sensors, temperature and humidity sensors (DHT11), and a water pump controlled by an ESP8266. The data is sent to a cloud dashboard built with React and Node.js.",
+            "tags": [
+                "React",
+                "Node.js",
+                "Arduino",
+                "MongoDB"
+            ],
+            "link": "#",
+            "github": "#",
+            "image": "/uploads/1770558705320-Screenshot-2026-01-19-at-9.46.40-AM.png"
+        },
+        {
+            "id": "p2",
+            "title": "EcoTrack",
+            "description": "An app I made to help people track their carbon footprint. It gives you practical tips on how to live a bit greener every day.",
+            "longDescription": "EcoTrack is a full-stack web application that allows users to log their daily activities and calculates their carbon footprint. It features interactive charts using Recharts.",
+            "tags": [
+                "Next.js",
+                "TypeScript",
+                "Tailwind",
+                "Firebase"
+            ],
+            "link": "#",
+            "github": "#",
+            "image": "/project2.webp"
+        },
+        {
+            "id": "p3",
+            "title": "VibeChat",
+            "description": "A fun chat app that uses AI to check the 'vibe' of your messages, encouraging everyone to be a bit more positive.",
+            "longDescription": "VibeChat is a real-time communication platform that integrates sentiment analysis using OpenAI's API to foster a healthier online community.",
+            "tags": [
+                "Socket.io",
+                "React",
+                "Express",
+                "OpenAI"
+            ],
+            "link": "#",
+            "github": "#",
+            "image": "/project3.webp"
+        }
+    ],
+    "achievements": [
+        {
+            "id": "a1",
+            "title": "National Innovation Award",
+            "description": "Recognized for developing an affordable IoT-based irrigation system for local farmers in Sri Lanka.",
+            "longDescription": "Competing against over 100 entries nationwide, this project was selected for its cost-effectiveness and scalability in local agricultural contexts.",
+            "year": "2024",
+            "icon": "Trophy"
+        },
+        {
+            "id": "a2",
+            "title": "Founder of TechStart Studio",
+            "description": "Successfully launched and currently scaling a tech venture focusing on industrial automation and IoT.",
+            "longDescription": "TechStart Studio was founded to provide accessible automation solutions for Small and Medium Enterprises (SMEs).",
+            "year": "2023",
+            "icon": "Zap"
+        },
+        {
+            "id": "a3",
+            "title": "10+ Custom Hardware Solutions",
+            "description": "Designed and deployed over 10 proprietary hardware solutions for various local industries.",
+            "longDescription": "From automated warehouse monitoring to precise agricultural sensors, I've designed and manufactured custom PCBs and firmware for a wide range of industrial applications.",
+            "year": "Active",
+            "icon": "Star"
+        },
+        {
+            "id": "a4",
+            "title": "Top Emerging Entrepreneur",
+            "description": "Featured in local tech community highlights for driving digital transformation in traditional sectors.",
+            "longDescription": "This recognition highlights the impact of bringing modern IoT solutions to traditional Sri Lankan industries.",
+            "year": "2024",
+            "icon": "Award"
+        }
+    ],
+    "ventures": [
+        {
+            "id": "v1",
+            "title": "TechStart Studio",
+            "description": "I started TechStart Studio to help local businesses use IoT.",
+            "longDescription": "TechStart Studio is a full-service innovation lab specializing in IoT and embedded systems. Our goal is to empower Sri Lankan businesses with global tech at a local price point.",
+            "role": "Founder",
+            "status": "Active",
+            "year": "2023 - Present"
+        }
+    ],
+    "social": [
+        {
+            "id": "s1",
+            "title": "AgriTech for Youth",
+            "description": "Organizing workshops for rural youth in Sri Lanka to learn about IoT and modern farming techniques.",
+            "longDescription": "Through this initiative, we've reached over 500 students in rural farming communities, teaching them how to build basic soil moisture sensors.",
+            "impact": "500+ Students Reached",
+            "icon": "Users"
+        },
+        {
+            "id": "s2",
+            "title": "Island-wide Tech Mentoring",
+            "description": "Providing free technical mentorship for aspiring local developers and hardware enthusiasts.",
+            "longDescription": "Dedicate 5 hours every week to review code, troubleshoot hardware designs, and provide career guidance for Sri Lankan tech enthusiasts.",
+            "impact": "50+ Mentees Supported",
+            "icon": "Heart"
+        },
+        {
+            "id": "s3",
+            "title": "Open Source Heritage",
+            "description": "Working on digitizing and preserving traditional Sri Lankan agricultural wisdom using modern tech.",
+            "longDescription": "A project focused on documenting indigenous farming methods and traditional irrigation knowledge combined with modern environmental data.",
+            "impact": "Open Source Platform",
+            "icon": "Handshake"
+        }
+    ],
+    "skills": [
+        {
+            "name": "Development",
+            "icon": "Laptop",
+            "items": [
+                "React",
+                "Next.js",
+                "TypeScript",
+                "Node.js"
+            ]
+        },
+        {
+            "name": "Entrepreneurship",
+            "icon": "Rocket",
+            "items": [
+                "Product Strategy",
+                "Growth Hacking",
+                "Market Research",
+                "Lean Startup"
+            ]
+        },
+        {
+            "name": "IoT & Hardware",
+            "icon": "Cpu",
+            "items": [
+                "Arduino",
+                "ESP8266",
+                "Embedded C++",
+                "Firmware"
+            ]
+        },
+        {
+            "name": "Infrastructure",
+            "icon": "Code",
+            "items": [
+                "Docker",
+                "AWS/Vercel",
+                "CI/CD",
+                "MongoDB"
+            ]
+        }
+    ]
+}
