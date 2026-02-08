@@ -247,9 +247,10 @@ export default function AdminPage() {
                                     className={styles.addButton}
                                     onClick={() => {
                                         if (activeTab === 'projects') addItem('projects', { title: 'New Project', description: '', tags: [], image: '', github: '#', link: '#' });
-                                        if (activeTab === 'achievements') addItem('achievements', { title: 'New Achievement', description: '', year: '2024', icon: 'Trophy' });
-                                        if (activeTab === 'social') addItem('social', { title: 'New Social Work', description: '', impact: '', icon: 'Heart' });
-                                        if (activeTab === 'skills') addItem('skills', { name: 'New Skills Category', items: [], icon: 'Code' });
+                                        if (activeTab === 'achievements') addItem('achievements', { title: 'New Achievement', description: '', year: '2024', icon: 'Trophy', image: '' });
+                                        if (activeTab === 'social') addItem('social', { title: 'New Social Work', description: '', impact: '', icon: 'Heart', image: '' });
+                                        if (activeTab === 'skills') addItem('skills', { name: 'New Skills Category', items: [], icon: 'Code', image: '' });
+                                        if (activeTab === 'ventures') addItem('ventures', { title: 'New Venture', description: '', longDescription: '', role: '', status: '', year: '', image: '' });
                                     }}
                                 >
                                     <Plus size={18} /> Add New
@@ -308,7 +309,19 @@ export default function AdminPage() {
                                                     />
                                                 )
                                             ) : typeof value === 'string' ? (
-                                                key.includes('description') || key.includes('text') ? (
+                                                key.includes('image') || key.includes('logo') || key.includes('photo') ? (
+                                                    <div className={styles.imageUpload}>
+                                                        {value && <img src={value} alt="Preview" />}
+                                                        <label className={styles.uploadBtn}>
+                                                            <Upload size={16} /> {value ? 'Change Image' : 'Upload Image'}
+                                                            <input
+                                                                type="file"
+                                                                onChange={(e) => handleImageUpload(e, [activeTab, key])}
+                                                                hidden
+                                                            />
+                                                        </label>
+                                                    </div>
+                                                ) : key.includes('description') || key.includes('text') ? (
                                                     <textarea
                                                         value={value}
                                                         onChange={(e) => updateData([activeTab, key], e.target.value)}
@@ -387,22 +400,20 @@ export default function AdminPage() {
                                             </div>
                                         )}
 
-                                        {(activeTab === 'projects' || activeTab === 'ventures') && item.image !== undefined && (
-                                            <div className={styles.fieldGroup}>
-                                                <label>Photo</label>
-                                                <div className={styles.imageUpload}>
-                                                    {item.image && <img src={item.image} alt="Preview" />}
-                                                    <label className={styles.uploadBtn}>
-                                                        <Upload size={16} /> Change Image
-                                                        <input
-                                                            type="file"
-                                                            onChange={(e) => handleImageUpload(e, [activeTab, index.toString(), 'image'])}
-                                                            hidden
-                                                        />
-                                                    </label>
-                                                </div>
+                                        <div className={styles.fieldGroup}>
+                                            <label>Photo / Image</label>
+                                            <div className={styles.imageUpload}>
+                                                {item.image && <img src={item.image} alt="Preview" />}
+                                                <label className={styles.uploadBtn}>
+                                                    <Upload size={16} /> {item.image ? 'Change Image' : 'Upload Image'}
+                                                    <input
+                                                        type="file"
+                                                        onChange={(e) => handleImageUpload(e, [activeTab, index.toString(), 'image'])}
+                                                        hidden
+                                                    />
+                                                </label>
                                             </div>
-                                        )}
+                                        </div>
 
                                         {item.longDescription !== undefined && (
                                             <div className={styles.fieldGroup}>

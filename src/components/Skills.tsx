@@ -24,14 +24,21 @@ const Skills = () => {
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                         className={`${styles.skillCard} glass`}
                     >
-                        <div className={styles.skillIcon}>
-                            {skill.icon}
-                        </div>
-                        <h4>{skill.name}</h4>
-                        <div className={styles.skillItems}>
-                            {skill.items.map((item: string) => (
-                                <span key={item} className={styles.skillTag}>{item}</span>
-                            ))}
+                        {skill.image && (
+                            <div className={styles.skillImageWrapper}>
+                                <img src={skill.image} alt={skill.name} className={styles.skillImage} />
+                            </div>
+                        )}
+                        <div className={styles.skillCardContent}>
+                            <div className={styles.skillIcon}>
+                                {skill.icon}
+                            </div>
+                            <h4>{skill.name}</h4>
+                            <div className={styles.skillItems}>
+                                {skill.items.map((item: string) => (
+                                    <span key={item} className={styles.skillTag}>{item}</span>
+                                ))}
+                            </div>
                         </div>
                     </motion.div>
                 ))}

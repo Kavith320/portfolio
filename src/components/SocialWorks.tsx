@@ -46,14 +46,21 @@ const SocialWorks = () => {
                             className={`${styles.card} glass`}
                             onClick={() => setSelectedWork(item)}
                         >
-                            <div className={styles.iconWrapper}>
-                                {item.icon}
-                            </div>
-                            <h3 className={styles.workTitle}>{item.title}</h3>
-                            <p className={styles.description}>{item.description}</p>
-                            <div className={styles.impactBadge}>
-                                <Target size={14} />
-                                <span>{item.impact}</span>
+                            {item.image && (
+                                <div className={styles.cardImageWrapper}>
+                                    <img src={item.image} alt={item.title} className={styles.cardImage} />
+                                </div>
+                            )}
+                            <div className={styles.cardContent}>
+                                <div className={styles.iconWrapper}>
+                                    {item.icon}
+                                </div>
+                                <h3 className={styles.workTitle}>{item.title}</h3>
+                                <p className={styles.description}>{item.description}</p>
+                                <div className={styles.impactBadge}>
+                                    <Target size={14} />
+                                    <span>{item.impact}</span>
+                                </div>
                             </div>
                         </motion.div>
                     ))}
@@ -67,6 +74,12 @@ const SocialWorks = () => {
                             <div className={styles.modalIcon}>{selectedWork.icon}</div>
                             <h2 className={styles.modalTitle}>{selectedWork.title}</h2>
                         </div>
+
+                        {selectedWork.image && (
+                            <div className={styles.modalImageWrapper}>
+                                <img src={selectedWork.image} alt={selectedWork.title} className={styles.modalImage} />
+                            </div>
+                        )}
 
                         <div className={styles.impactGrid}>
                             <div className={styles.impactItem}>

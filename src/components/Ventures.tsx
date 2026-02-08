@@ -30,6 +30,11 @@ const Ventures = () => {
                         className={`${styles.venturesCard} glass`}
                         onClick={() => setSelectedVenture(venture)}
                     >
+                        {venture.image && (
+                            <div className={styles.ventureImageWrapper}>
+                                <img src={venture.image} alt={venture.title} className={styles.ventureImage} />
+                            </div>
+                        )}
                         <div className={styles.ventureInfo}>
                             <h4>{venture.title}</h4>
                             <p>{venture.description}</p>
@@ -52,6 +57,12 @@ const Ventures = () => {
                             </div>
                             <h2 className={styles.modalTitle}>{selectedVenture.title}</h2>
                         </div>
+
+                        {selectedVenture.image && (
+                            <div className={styles.modalImageWrapper}>
+                                <img src={selectedVenture.image} alt={selectedVenture.title} className={styles.modalImage} />
+                            </div>
+                        )}
 
                         <div className={styles.modalInfoGrid}>
                             <div className={styles.infoItem}>

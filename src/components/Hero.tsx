@@ -77,8 +77,8 @@ const Hero = () => {
                     <div className={styles.glowCircle} />
                     <div className={styles.imageWrapper}>
                         <Image
-                            src="/me1.jpeg"
-                            alt="Kavith Udapola"
+                            src={heroData.profileImage || "/me1.jpeg"}
+                            alt={`${heroData.firstName} ${heroData.lastName}`}
                             width={400}
                             height={500}
                             className={styles.profileImage}

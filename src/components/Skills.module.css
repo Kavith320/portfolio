@@ -30,9 +30,28 @@
 }
 
 .skillCard {
-    padding: 2.5rem;
+    padding: 0;
     border-radius: 2rem;
     transition: transform 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.skillCardContent {
+    padding: 2.5rem;
+}
+
+.skillImageWrapper {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+}
+
+.skillImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .skillCard:hover {

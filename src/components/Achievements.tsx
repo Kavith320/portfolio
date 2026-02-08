@@ -46,12 +46,19 @@ const Achievements = () => {
                             className={`${styles.card} glass`}
                             onClick={() => setSelectedAchievement(item)}
                         >
-                            <span className={styles.year}>{item.year}</span>
-                            <div className={styles.iconWrapper}>
-                                {item.icon}
+                            {item.image && (
+                                <div className={styles.cardImageWrapper}>
+                                    <img src={item.image} alt={item.title} className={styles.cardImage} />
+                                </div>
+                            )}
+                            <div className={styles.cardContent}>
+                                <span className={styles.year}>{item.year}</span>
+                                <div className={styles.iconWrapper}>
+                                    {item.icon}
+                                </div>
+                                <h3 className={styles.achievementTitle}>{item.title}</h3>
+                                <p className={styles.description}>{item.description}</p>
                             </div>
-                            <h3 className={styles.achievementTitle}>{item.title}</h3>
-                            <p className={styles.description}>{item.description}</p>
                         </motion.div>
                     ))}
                 </div>
@@ -64,6 +71,12 @@ const Achievements = () => {
                             <div className={styles.modalIcon}>{selectedAchievement.icon}</div>
                             <h2 className={styles.modalTitle}>{selectedAchievement.title}</h2>
                         </div>
+
+                        {selectedAchievement.image && (
+                            <div className={styles.modalImageWrapper}>
+                                <img src={selectedAchievement.image} alt={selectedAchievement.title} className={styles.modalImage} />
+                            </div>
+                        )}
 
                         <div className={styles.modalInfoGrid}>
                             <div className={styles.infoItem}>
