@@ -29,7 +29,8 @@
 
 .logoImage {
     object-fit: contain;
-    max-height: 48px;
+    max-height: 120px;
+    /* Increased significantly */
     width: auto;
 }
 
