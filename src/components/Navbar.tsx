@@ -26,11 +26,14 @@ const Navbar = () => {
     return (
         <nav className={`${styles.navbar} glass`}>
             <Link href="/" className={styles.logo}>
-                {heroData?.logo ? (
-                    <Image src={heroData.logo} alt="Logo" width={120} height={40} className={styles.logoImage} />
-                ) : (
-                    <>KU<span className="text-gradient">.</span></>
-                )}
+                <Image
+                    src={heroData?.logo || "/logo.png"}
+                    alt="Logo"
+                    width={120}
+                    height={40}
+                    className={styles.logoImage}
+                    priority
+                />
             </Link>
 
             {/* Desktop Menu */}
