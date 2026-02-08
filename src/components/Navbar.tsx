@@ -29,8 +29,8 @@ const Navbar = () => {
                 <Image
                     src={heroData?.logo || "/logo.png"}
                     alt="Logo"
-                    width={200}
-                    height={120}
+                    width={160}
+                    height={60}
                     className={styles.logoImage}
                     priority
                 />
