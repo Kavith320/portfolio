@@ -1,5 +1,6 @@
 {
     "hero": {
+        "logo": "/logo.png",
         "badge": "Entrepreneur | Innovator",
         "firstName": "Kavith",
         "lastName": "Udapola",

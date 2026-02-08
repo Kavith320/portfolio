@@ -18,11 +18,19 @@
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
     font-size: 1.5rem;
     font-weight: 800;
     color: var(--foreground);
-    text-decoration: none;
     letter-spacing: -0.05em;
+}
+
+.logoImage {
+    object-fit: contain;
+    max-height: 32px;
+    width: auto;
 }
 
 .desktopMenu {

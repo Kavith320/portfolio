@@ -4,9 +4,13 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Navbar.module.css";
+import { usePortfolioData } from "@/hooks/usePortfolioData";
 
 const Navbar = () => {
+    const { data } = usePortfolioData();
+    const heroData = data.hero;
     const [isOpen, setIsOpen] = useState(false);
 
     const navLinks = [
@@ -22,7 +26,11 @@ const Navbar = () => {
     return (
         <nav className={`${styles.navbar} glass`}>
             <Link href="/" className={styles.logo}>
-                KU<span className="text-gradient">.</span>
+                {heroData?.logo ? (
+                    <Image src={heroData.logo} alt="Logo" width={120} height={40} className={styles.logoImage} />
+                ) : (
+                    <>KU<span className="text-gradient">.</span></>
+                )}
             </Link>
 
             {/* Desktop Menu */}
