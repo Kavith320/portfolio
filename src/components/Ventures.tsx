@@ -35,12 +35,14 @@ const Ventures = () => {
                                 <img src={venture.image} alt={venture.title} className={styles.ventureImage} />
                             </div>
                         )}
-                        <div className={styles.ventureInfo}>
-                            <h4>{venture.title}</h4>
-                            <p>{venture.description}</p>
-                            <div className={styles.ventureTags}>
-                                <span>{venture.role}</span>
-                                <span>{venture.status}</span>
+                        <div className={styles.cardContent}>
+                            <div className={styles.ventureInfo}>
+                                <h4>{venture.title}</h4>
+                                <p>{venture.description}</p>
+                                <div className={styles.ventureTags}>
+                                    <span>{venture.role}</span>
+                                    <span>{venture.status}</span>
+                                </div>
                             </div>
                         </div>
                     </motion.div>

@@ -53,8 +53,8 @@ const Navbar = () => {
                 <Image
                     src={heroData?.logo || "/logo.png"}
                     alt="Logo"
-                    width={160}
-                    height={60}
+                    width={120}
+                    height={38}
                     className={styles.logoImage}
                     priority
                 />
