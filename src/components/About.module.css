@@ -15,6 +15,10 @@
     align-items: center;
 }
 
+.content .statItem {
+    align-items: center;
+}
+
 .grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -69,19 +73,24 @@
 
 .stats {
     display: flex;
-    gap: 4rem;
+    gap: 3rem;
     margin-top: 3rem;
+    flex-wrap: wrap;
 }
 
 .statItem {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
 }
 
 .statNumber {
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     font-weight: 800;
     color: var(--primary);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    margin-bottom: 0.5rem;
 }
 
 .statLabel {
@@ -97,6 +106,10 @@
         grid-template-columns: 1fr;
         gap: 3rem;
         text-align: center;
+    }
+
+    .statItem {
+        align-items: center;
     }
 
     .imageWrapper {
