@@ -76,12 +76,16 @@
     gap: 3rem;
     margin-top: 3rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .statItem {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
+    width: 140px;
+    /* Fixed width for better centering */
 }
 
 .statNumber {
