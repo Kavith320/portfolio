@@ -13,6 +13,7 @@
         "profileImage": "/me1.jpeg"
     },
     "about": {
+        "image": "",
         "subtitle": "Entrepreneur | Innovator | IoT & AgriTech Enthusiast",
         "title": "Impact Driven",
         "titleGradient": "Innovator",

@@ -31,8 +31,8 @@
 
 .skillCard {
     padding: 0;
-    border-radius: 2rem;
-    transition: transform 0.3s ease;
+    border-radius: 2.5rem;
+    transition: all 0.3s ease;
     overflow: hidden;
     display: flex;
     flex-direction: column;
