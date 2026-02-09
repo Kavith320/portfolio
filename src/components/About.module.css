@@ -24,7 +24,10 @@
     grid-template-columns: 1fr 1.2fr;
     gap: 4rem;
     align-items: center;
-    text-align: left;
+    justify-items: center;
+    /* Center items horizontally in grid cells */
+    text-align: center;
+    /* Center text content */
 }
 
 .imageWrapper {
@@ -44,6 +47,8 @@
 .textContent {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    /* Center content within text container */
 }
 
 .subtitle {
