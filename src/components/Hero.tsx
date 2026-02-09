@@ -60,9 +60,9 @@ const Hero = () => {
                         Explore Work <ArrowRight size={18} />
                     </a>
                     <div className={styles.socials}>
-                        <a href="#" className={styles.socialLink} aria-label="LinkedIn"><Linkedin size={22} /></a>
-                        <a href="#" className={styles.socialLink} aria-label="GitHub"><Github size={22} /></a>
-                        <a href="#" className={styles.socialLink} aria-label="Email"><Mail size={22} /></a>
+                        <a href="https://www.linkedin.com/in/kavith-udapola" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="LinkedIn"><Linkedin size={22} /></a>
+                        <a href="https://github.com/Kavith320" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="GitHub"><Github size={22} /></a>
+                        <a href="mailto:sendtokavith@gmail.com" className={styles.socialLink} aria-label="Email"><Mail size={22} /></a>
                     </div>
                 </motion.div>
             </div>
