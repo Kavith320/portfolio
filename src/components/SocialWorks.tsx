@@ -22,7 +22,7 @@ const SocialWorks = () => {
                         viewport={{ once: true }}
                         className={styles.subtitle}
                     >
-                        Giving Back
+                        {data.headings?.social?.title || "Giving Back"}
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,9 @@ const SocialWorks = () => {
                         transition={{ delay: 0.1 }}
                         className={styles.title}
                     >
-                        Social <span className="text-gradient">Impact</span>
+                        {(data.headings?.social?.subtitle || "Social Impact").split(' ').map((word: string, i: number, arr: string[]) => (
+                             i === arr.length - 1 ? <span key={i} className="text-gradient">{word}</span> : word + ' '
+                        ))}
                     </motion.h2>
                 </div>
 
@@ -52,11 +54,13 @@ const SocialWorks = () => {
                                 </div>
                             )}
                             <div className={styles.cardContent}>
-                                <div className={styles.iconWrapper}>
+                                <div className={`${styles.iconWrapper} ${item.image ? styles.floatingIcon : ''}`}>
                                     {item.icon}
                                 </div>
-                                <h3 className={styles.workTitle}>{item.title}</h3>
-                                <p className={styles.description}>{item.description}</p>
+                                <div className={styles.workInfo}>
+                                    <h3 className={styles.workTitle}>{item.title}</h3>
+                                    <p className={styles.description}>{item.description}</p>
+                                </div>
                                 <div className={styles.impactBadge}>
                                     <Target size={14} />
                                     <span>{item.impact}</span>

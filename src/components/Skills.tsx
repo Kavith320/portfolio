@@ -10,8 +10,12 @@ const Skills = () => {
     return (
         <section id="skills" className={styles.skillsSection}>
             <div className={styles.header}>
-                <h2 className={styles.subtitle}>My Tools</h2>
-                <h3 className={styles.title}>What I&apos;m <span className="text-gradient">Good At</span></h3>
+                <h2 className={styles.subtitle}>{data.headings?.skills?.title || "My Tools"}</h2>
+                <h3 className={styles.title}>
+                    {(data.headings?.skills?.subtitle || "What I'm Good At").split(' ').map((word: string, i: number, arr: string[]) => (
+                        i === arr.length - 1 ? <span key={i} className="text-gradient">{word}</span> : word + ' '
+                    ))}
+                </h3>
             </div>
 
             <div className={styles.skillsGrid}>

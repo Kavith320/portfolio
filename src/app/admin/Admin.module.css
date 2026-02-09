@@ -125,6 +125,11 @@
     padding: 1.5rem;
 }
 
+.sectionSettings {
+    border: 1px solid var(--primary) !important;
+    background: rgba(16, 185, 129, 0.05) !important;
+}
+
 .cardHeader {
     display: flex;
     justify-content: space-between;

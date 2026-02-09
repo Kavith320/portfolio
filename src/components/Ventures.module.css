@@ -41,10 +41,11 @@
 }
 
 .cardContent {
-    padding: 2.5rem 3rem 3rem 3rem;
+    padding: 2rem 2.5rem 2.5rem 2.5rem;
     display: flex;
     flex-direction: column;
     flex: 1;
+    gap: 1.5rem;
 }
 
 .venturesCard:hover {
@@ -67,34 +68,62 @@
 }
 
 .ventureInfo h4 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    color: white;
 }
 
 .ventureInfo p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--foreground);
     opacity: 0.7;
     line-height: 1.6;
-    margin-bottom: 2rem;
+    margin: 0;
 }
 
 .ventureTags {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+    width: 100%;
 }
 
 .ventureTags span {
-    padding: 0.4rem 1rem;
-    background: rgba(16, 185, 129, 0.1);
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    padding: 0.4rem 0.8rem;
+    background: rgba(16, 185, 129, 0.08);
+    border: 1px solid rgba(16, 185, 129, 0.15);
     border-radius: 100px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 700;
     color: var(--primary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.ventureLinkCard {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.9rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-left: auto;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ventureLinkCard:hover {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: var(--primary);
+    transform: translateY(-2px);
 }
 
 /* Modal Styles */

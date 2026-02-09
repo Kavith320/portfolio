@@ -91,6 +91,9 @@ export default function AdminPage() {
         const newData = { ...data };
         let current = newData;
         for (let i = 0; i < path.length - 1; i++) {
+            if (current[path[i]] === undefined || current[path[i]] === null) {
+                current[path[i]] = {};
+            }
             current = current[path[i]];
         }
         current[path[path.length - 1]] = value;
@@ -183,6 +186,7 @@ export default function AdminPage() {
     if (!data) return <div className={styles.loading}>Loading Dashboard...</div>;
 
     const tabs = [
+        { id: 'headings', label: 'Section Headings' },
         { id: 'hero', label: 'Hero Section' },
         { id: 'about', label: 'About Me' },
         { id: 'projects', label: 'Projects' },
@@ -192,7 +196,7 @@ export default function AdminPage() {
         { id: 'skills', label: 'Skills' }
     ];
 
-    const isGlobalTab = activeTab === 'hero' || activeTab === 'about';
+    const isGlobalTab = activeTab === 'headings' || activeTab === 'hero' || activeTab === 'about';
 
     return (
         <div className={styles.adminPage}>
@@ -246,11 +250,11 @@ export default function AdminPage() {
                                 <button
                                     className={styles.addButton}
                                     onClick={() => {
-                                        if (activeTab === 'projects') addItem('projects', { title: 'New Project', description: '', tags: [], image: '', github: '#', link: '#' });
-                                        if (activeTab === 'achievements') addItem('achievements', { title: 'New Achievement', description: '', year: '2024', icon: 'Trophy', image: '' });
-                                        if (activeTab === 'social') addItem('social', { title: 'New Social Work', description: '', impact: '', icon: 'Heart', image: '' });
+                                        if (activeTab === 'projects') addItem('projects', { title: 'New Project', description: '', longDescription: '', tags: [], image: '', github: '#', link: '#' });
+                                        if (activeTab === 'achievements') addItem('achievements', { title: 'New Achievement', description: '', longDescription: '', year: '2024', icon: 'Trophy', image: '' });
+                                        if (activeTab === 'social') addItem('social', { title: 'New Social Work', description: '', longDescription: '', impact: '', icon: 'Heart', image: '' });
                                         if (activeTab === 'skills') addItem('skills', { name: 'New Skills Category', items: [], icon: 'Code', image: '' });
-                                        if (activeTab === 'ventures') addItem('ventures', { title: 'New Venture', description: '', longDescription: '', role: '', status: '', year: '', image: '' });
+                                        if (activeTab === 'ventures') addItem('ventures', { title: 'New Venture', description: '', longDescription: '', role: '', status: '', year: '', image: '', link: '' });
                                     }}
                                 >
                                     <Plus size={18} /> Add New
@@ -258,10 +262,36 @@ export default function AdminPage() {
                             )}
                         </div>
 
+                        {!isGlobalTab && data.headings?.[activeTab as keyof typeof data.headings] && (
+                            <div className={`${styles.itemCard} ${styles.sectionSettings}`}>
+                                <div className={styles.cardHeader}>
+                                    <h3 style={{ fontSize: '1rem', opacity: 0.8 }}>Section Header Settings (Page Heading)</h3>
+                                </div>
+                                <div className={styles.cardBody} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+                                    <div className={styles.fieldGroup}>
+                                        <label>Main Heading</label>
+                                        <input
+                                            value={data.headings[activeTab as keyof typeof data.headings].title}
+                                            onChange={(e) => updateData(['headings', activeTab, 'title'], e.target.value)}
+                                            className={styles.addTagInput}
+                                        />
+                                    </div>
+                                    <div className={styles.fieldGroup}>
+                                        <label>Sub-heading / Description</label>
+                                        <input
+                                            value={data.headings[activeTab as keyof typeof data.headings].subtitle}
+                                            onChange={(e) => updateData(['headings', activeTab, 'subtitle'], e.target.value)}
+                                            className={styles.addTagInput}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
                         <div className={styles.itemsList}>
                             {isGlobalTab ? (
                                 <div className={styles.itemCard}>
-                                    {Object.entries(data[activeTab]).map(([key, value]: [string, any]) => (
+                                    {data[activeTab] && Object.entries(data[activeTab]).map(([key, value]: [string, any]) => (
                                         <div key={key} className={styles.fieldGroup}>
                                             <label>{key}</label>
                                             {Array.isArray(value) ? (
@@ -308,6 +338,19 @@ export default function AdminPage() {
                                                         onUpdate={(newTags) => updateData([activeTab, key], newTags)}
                                                     />
                                                 )
+                                            ) : typeof value === 'object' && value !== null ? (
+                                                <div className={styles.nestedItems} style={{ padding: '1rem', background: 'rgba(255,255,255,0.02)', borderRadius: '8px' }}>
+                                                    {Object.entries(value).map(([vKey, vVal]) => (
+                                                        <div key={vKey} className={styles.fieldGroup}>
+                                                            <label style={{ fontSize: '0.7rem' }}>{vKey}</label>
+                                                            <input
+                                                                value={vVal as string}
+                                                                onChange={(e) => updateData([activeTab, key, vKey], e.target.value)}
+                                                                className={styles.addTagInput}
+                                                            />
+                                                        </div>
+                                                    ))}
+                                                </div>
                                             ) : typeof value === 'string' ? (
                                                 key.includes('image') || key.includes('logo') || key.includes('photo') ? (
                                                     <div className={styles.imageUpload}>
@@ -340,11 +383,17 @@ export default function AdminPage() {
                             ) : data[activeTab].map((item: any, index: number) => (
                                 <div key={item.id || index} className={styles.itemCard}>
                                     <div className={styles.cardHeader}>
-                                        <input
-                                            value={item.title || item.name}
-                                            onChange={(e) => updateData([activeTab, index.toString(), item.title ? 'title' : 'name'], e.target.value)}
-                                            className={styles.titleInput}
-                                        />
+                                        <div style={{ flex: 1 }}>
+                                            <label style={{ fontSize: '0.7rem', textTransform: 'uppercase', opacity: 0.6, letterSpacing: '0.05em', marginBottom: '4px', display: 'block' }}>
+                                                {activeTab === 'projects' ? 'Project Title' : activeTab === 'ventures' ? 'Venture Name' : 'Item Title'}
+                                            </label>
+                                            <input
+                                                value={item.title || item.name || ''}
+                                                onChange={(e) => updateData([activeTab, index.toString(), item.title !== undefined ? 'title' : 'name'], e.target.value)}
+                                                className={styles.titleInput}
+                                                placeholder="Enter title..."
+                                            />
+                                        </div>
                                         <button
                                             className={styles.deleteButton}
                                             onClick={() => removeItem(activeTab, index)}
@@ -415,23 +464,95 @@ export default function AdminPage() {
                                             </div>
                                         </div>
 
-                                        {item.longDescription !== undefined && (
+                                        {(['projects', 'ventures', 'achievements', 'social'].includes(activeTab)) && (
                                             <div className={styles.fieldGroup}>
                                                 <label>Deep-dive Description (for modals)</label>
                                                 <textarea
-                                                    value={item.longDescription}
+                                                    value={item.longDescription || ''}
                                                     onChange={(e) => updateData([activeTab, index.toString(), 'longDescription'], e.target.value)}
+                                                    placeholder="Tell the full story of this work..."
+                                                />
+                                            </div>
+                                        )}
+
+                                        {activeTab === 'projects' && (
+                                            <div className={styles.fieldGroup}>
+                                                <label>GitHub Link</label>
+                                                <input
+                                                    value={item.github || ''}
+                                                    onChange={(e) => updateData([activeTab, index.toString(), 'github'], e.target.value)}
+                                                    className={styles.addTagInput}
+                                                    placeholder="#"
+                                                />
+                                            </div>
+                                        )}
+
+                                        {(activeTab === 'projects' || activeTab === 'ventures') && (
+                                            <div className={styles.fieldGroup}>
+                                                <label>Website Link</label>
+                                                <input
+                                                    value={item.link || ''}
+                                                    onChange={(e) => updateData([activeTab, index.toString(), 'link'], e.target.value)}
+                                                    className={styles.addTagInput}
+                                                    placeholder="https://..."
+                                                />
+                                            </div>
+                                        )}
+
+                                        {activeTab === 'ventures' && (
+                                            <>
+                                                <div className={styles.fieldGroup}>
+                                                    <label>Role</label>
+                                                    <input
+                                                        value={item.role || ''}
+                                                        onChange={(e) => updateData([activeTab, index.toString(), 'role'], e.target.value)}
+                                                        className={styles.addTagInput}
+                                                        placeholder="Founder, CEO..."
+                                                    />
+                                                </div>
+                                                <div className={styles.fieldGroup}>
+                                                    <label>Status</label>
+                                                    <input
+                                                        value={item.status || ''}
+                                                        onChange={(e) => updateData([activeTab, index.toString(), 'status'], e.target.value)}
+                                                        className={styles.addTagInput}
+                                                        placeholder="Active, Scaling..."
+                                                    />
+                                                </div>
+                                            </>
+                                        )}
+
+                                        {(activeTab === 'ventures' || activeTab === 'achievements') && (
+                                            <div className={styles.fieldGroup}>
+                                                <label>Year / Duration</label>
+                                                <input
+                                                    value={item.year || ''}
+                                                    onChange={(e) => updateData([activeTab, index.toString(), 'year'], e.target.value)}
+                                                    className={styles.addTagInput}
+                                                    placeholder="2023 - Present"
+                                                />
+                                            </div>
+                                        )}
+
+                                        {activeTab === 'social' && (
+                                            <div className={styles.fieldGroup}>
+                                                <label>Impact / Metric</label>
+                                                <input
+                                                    value={item.impact || ''}
+                                                    onChange={(e) => updateData([activeTab, index.toString(), 'impact'], e.target.value)}
+                                                    className={styles.addTagInput}
+                                                    placeholder="500+ Students Reached..."
                                                 />
                                             </div>
                                         )}
 
                                         {/* Show other fields generically if they are simple strings */}
                                         {Object.entries(item).map(([key, value]) => {
-                                            if (['id', 'title', 'name', 'description', 'icon', 'tags', 'items', 'image', 'longDescription'].includes(key)) return null;
+                                            if (['id', 'title', 'name', 'description', 'icon', 'tags', 'items', 'image', 'longDescription', 'link', 'github', 'role', 'status', 'year', 'impact'].includes(key)) return null;
                                             if (typeof value !== 'string') return null;
                                             return (
                                                 <div key={key} className={styles.fieldGroup}>
-                                                    <label>{key}</label>
+                                                    <label>{key.charAt(0).toUpperCase() + key.slice(1)}</label>
                                                     <input
                                                         value={value}
                                                         onChange={(e) => updateData([activeTab, index.toString(), key], e.target.value)}

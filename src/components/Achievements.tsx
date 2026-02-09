@@ -22,7 +22,7 @@ const Achievements = () => {
                         viewport={{ once: true }}
                         className={styles.subtitle}
                     >
-                        Success Stories
+                        {data.headings?.achievements?.title || "Success Stories"}
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -31,7 +31,9 @@ const Achievements = () => {
                         transition={{ delay: 0.1 }}
                         className={styles.title}
                     >
-                        Key <span className="text-gradient">Achievements</span>
+                        {(data.headings?.achievements?.subtitle || "Key Achievements").split(' ').map((word: string, i: number, arr: string[]) => (
+                             i === arr.length - 1 ? <span key={i} className="text-gradient">{word}</span> : word + ' '
+                        ))}
                     </motion.h2>
                 </div>
 

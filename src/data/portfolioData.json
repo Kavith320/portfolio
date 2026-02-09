@@ -1,4 +1,26 @@
 {
+    "headings": {
+        "projects": {
+            "title": "Recent Work",
+            "subtitle": "Stuff I've Built"
+        },
+        "ventures": {
+            "title": "Ventures & Innovations",
+            "subtitle": "Beyond code, I build businesses and solutions that solve real-world problems."
+        },
+        "achievements": {
+            "title": "Success Stories",
+            "subtitle": "Key Achievements"
+        },
+        "social": {
+            "title": "Giving Back",
+            "subtitle": "Social Impact"
+        },
+        "skills": {
+            "title": "My Toolkit",
+            "subtitle": "Technical Proficiencies"
+        }
+    },
     "hero": {
         "logo": "/logo.png",
         "badge": "Entrepreneur | Innovator",
@@ -123,7 +145,7 @@
             "role": "Founder",
             "status": "Active",
             "year": "2023 - Present",
-            "link": ""
+            "link": "https://techstartstudio.com"
         }
     ],
     "social": [
@@ -133,7 +155,8 @@
             "description": "Organizing workshops for rural youth in Sri Lanka to learn about IoT and modern farming techniques.",
             "longDescription": "Through this initiative, we've reached over 500 students in rural farming communities, teaching them how to build basic soil moisture sensors.",
             "impact": "500+ Students Reached",
-            "icon": "Users"
+            "icon": "Users",
+            "image": ""
         },
         {
             "id": "s2",
@@ -141,7 +164,8 @@
             "description": "Providing free technical mentorship for aspiring local developers and hardware enthusiasts.",
             "longDescription": "Dedicate 5 hours every week to review code, troubleshoot hardware designs, and provide career guidance for Sri Lankan tech enthusiasts.",
             "impact": "50+ Mentees Supported",
-            "icon": "Heart"
+            "icon": "Heart",
+            "image": ""
         },
         {
             "id": "s3",
@@ -149,7 +173,8 @@
             "description": "Working on digitizing and preserving traditional Sri Lankan agricultural wisdom using modern tech.",
             "longDescription": "A project focused on documenting indigenous farming methods and traditional irrigation knowledge combined with modern environmental data.",
             "impact": "Open Source Platform",
-            "icon": "Handshake"
+            "icon": "Handshake",
+            "image": ""
         }
     ],
     "skills": [

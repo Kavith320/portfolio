@@ -15,8 +15,12 @@ const Ventures = () => {
     return (
         <section id="ventures" className={styles.venturesSection}>
             <div className={styles.header}>
-                <h2 className={styles.subtitle}>Entrepreneurship</h2>
-                <h3 className={styles.title}>Started <span className="text-gradient">& Scaled</span></h3>
+                <h2 className={styles.subtitle}>{data.headings?.ventures?.title || "Entrepreneurship"}</h2>
+                <h3 className={styles.title}>
+                    {(data.headings?.ventures?.subtitle || "Started & Scaled").split(' ').map((word: string, i: number, arr: string[]) => (
+                        i === arr.length - 1 ? <span key={i} className="text-gradient">{word}</span> : word + ' '
+                    ))}
+                </h3>
             </div>
 
             <div className={styles.grid}>
@@ -39,10 +43,31 @@ const Ventures = () => {
                             <div className={styles.ventureInfo}>
                                 <h4>{venture.title}</h4>
                                 <p>{venture.description}</p>
-                                <div className={styles.ventureTags}>
-                                    <span>{venture.role}</span>
-                                    <span>{venture.status}</span>
-                                </div>
+                            </div>
+                            <div className={styles.ventureTags}>
+                                <span>{venture.role}</span>
+                                <span>{venture.status}</span>
+                                {venture.link && venture.link !== '#' && (
+                                    <a
+                                        href={venture.link.startsWith('http') ? venture.link : `https://${venture.link}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={styles.ventureLinkCard}
+                                        onClick={(e) => e.stopPropagation()}
+                                    >
+                                        <ExternalLink size={14} />
+                                        <span>
+                                            {(() => {
+                                                try {
+                                                    const url = venture.link.startsWith('http') ? venture.link : `https://${venture.link}`;
+                                                    return new URL(url).hostname.replace('www.', '');
+                                                } catch (e) {
+                                                    return 'Website';
+                                                }
+                                            })()}
+                                        </span>
+                                    </a>
+                                )}
                             </div>
                         </div>
                     </motion.div>
@@ -87,9 +112,9 @@ const Ventures = () => {
                                 </div>
                             </div>
 
-                            {selectedVenture.link && (
+                            {selectedVenture.link && selectedVenture.link !== '#' && (
                                 <a
-                                    href={selectedVenture.link}
+                                    href={selectedVenture.link.startsWith('http') ? selectedVenture.link : `https://${selectedVenture.link}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className={styles.visitButton}

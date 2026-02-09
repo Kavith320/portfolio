@@ -16,8 +16,12 @@ const Projects = () => {
     return (
         <section id="projects" className={styles.projects}>
             <div className={styles.header}>
-                <h2 className={styles.subtitle}>Recent Work</h2>
-                <h3 className={styles.title}>Stuff I&apos;ve <span className="text-gradient">Built</span></h3>
+                <h2 className={styles.subtitle}>{data.headings?.projects?.title || "Recent Work"}</h2>
+                <h3 className={styles.title}>
+                    {data.headings?.projects?.subtitle?.split(' ').map((word: string, i: number, arr: string[]) => (
+                        i === arr.length - 1 ? <span key={i} className="text-gradient">{word}</span> : word + ' '
+                    )) || "Stuff I've Built"}
+                </h3>
             </div>
 
             <div className={styles.grid}>
@@ -74,6 +78,12 @@ const Projects = () => {
                                 ))}
                             </div>
                         </div>
+
+                        {selectedProject.image && (
+                            <div className={styles.modalImageWrapper}>
+                                <img src={selectedProject.image} alt={selectedProject.title} className={styles.modalImage} />
+                            </div>
+                        )}
 
                         <div className={styles.modalBody}>
                             <div className={styles.modalInfoGrid}>
