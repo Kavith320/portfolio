@@ -27,7 +27,7 @@ export default function Home() {
           <div className={`${styles.contactCard} glass`}>
             <h2 className={styles.title}>Let&apos;s build something <span className="text-gradient">together</span></h2>
             <p>I&apos;m always up for a chat about new ideas or collaborations. Just drop me a message!</p>
-            <a href="mailto:hello@kavith.dev" className={styles.emailButton}>Say Hi!</a>
+            <a href="mailto:sendtokavith@gmail.com" className={styles.emailButton}>Say Hi!</a>
           </div>
         </section>
       </main>
