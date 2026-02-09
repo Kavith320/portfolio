@@ -116,6 +116,13 @@
   align-items: center;
 }
 
+.contactSection {
+  padding: 100px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .contactCard {
   width: 100%;
   max-width: 900px;
@@ -123,6 +130,8 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  margin: 0 auto;
+  border-radius: 2rem;
 }
 
 .contactCard::before {
