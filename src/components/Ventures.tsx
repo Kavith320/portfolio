@@ -86,6 +86,19 @@ const Ventures = () => {
                                     <span className={styles.statValue}>{selectedVenture.status}</span>
                                 </div>
                             </div>
+
+                            {selectedVenture.link && (
+                                <a
+                                    href={selectedVenture.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className={styles.visitButton}
+                                    onClick={(e) => e.stopPropagation()}
+                                >
+                                    <ExternalLink size={18} />
+                                    Visit Website
+                                </a>
+                            )}
                         </div>
                     </div>
                 )}
