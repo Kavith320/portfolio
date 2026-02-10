@@ -17,6 +17,8 @@ export const metadata: Metadata = {
   description: "Explore the modern, dynamic portfolio of Kavith Udapola, showcasing innovation in development and design.",
 };
 
+import AnalyticsTracker from "@/components/AnalyticsTracker";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${outfit.variable}`}>
+        <AnalyticsTracker />
         <div className="bg-mesh" aria-hidden="true" />
         {children}
       </body>

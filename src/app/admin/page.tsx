@@ -8,6 +8,7 @@ import { getIcon } from '@/lib/iconMap';
 
 export default function AdminPage() {
     const [data, setData] = useState<any>(null);
+    const [stats, setStats] = useState<any>(null);
     const [activeTab, setActiveTab] = useState('projects');
     const [isSaving, setIsSaving] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -26,6 +27,10 @@ export default function AdminPage() {
             fetch('/api/content')
                 .then(res => res.json())
                 .then(val => setData(val));
+            
+            fetch('/api/analytics')
+                .then(res => res.json())
+                .then(val => setStats(val));
         }
     }, [isAuthenticated]);
 
@@ -186,6 +191,7 @@ export default function AdminPage() {
     if (!data) return <div className={styles.loading}>Loading Dashboard...</div>;
 
     const tabs = [
+        { id: 'analytics', label: 'Analytics' },
         { id: 'headings', label: 'Section Headings' },
         { id: 'hero', label: 'Hero Section' },
         { id: 'about', label: 'About Me' },
@@ -197,6 +203,7 @@ export default function AdminPage() {
     ];
 
     const isGlobalTab = activeTab === 'headings' || activeTab === 'hero' || activeTab === 'about';
+    const isAnalyticsTab = activeTab === 'analytics';
 
     return (
         <div className={styles.adminPage}>
@@ -289,7 +296,48 @@ export default function AdminPage() {
                         )}
 
                         <div className={styles.itemsList}>
-                            {isGlobalTab ? (
+                            {isAnalyticsTab ? (
+                                <div className={styles.analyticsContainer}>
+                                    <div className={styles.statsGrid}>
+                                        <div className={styles.statCard}>
+                                            <span className={styles.statLabel}>Total Page Views</span>
+                                            <span className={styles.statValue}>{stats?.totalViews || 0}</span>
+                                        </div>
+                                        <div className={styles.statCard}>
+                                            <span className={styles.statLabel}>Total Sessions</span>
+                                            <span className={styles.statValue}>{stats?.totalSessions || 0}</span>
+                                        </div>
+                                        <div className={styles.statCard}>
+                                            <span className={styles.statLabel}>Avg. Stay Duration</span>
+                                            <span className={styles.statValue}>
+                                                {stats?.avgDuration ? `${Math.round(stats.avgDuration)}s` : '0s'}
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div className={styles.itemCard} style={{ marginTop: '2rem' }}>
+                                        <div className={styles.cardHeader}>
+                                            <h3>Recent Activity</h3>
+                                        </div>
+                                        <div className={styles.activityList}>
+                                            {stats?.recentActivity?.map((activity: any, i: number) => (
+                                                <div key={i} className={styles.activityItem} style={{ 
+                                                    padding: '0.75rem', 
+                                                    borderBottom: '1px solid rgba(255,255,255,0.05)',
+                                                    display: 'flex',
+                                                    justifyContent: 'space-between',
+                                                    fontSize: '0.85rem'
+                                                }}>
+                                                    <span>{activity.path}</span>
+                                                    <span style={{ opacity: 0.6 }}>
+                                                        {activity.type === 'page_view' ? 'Viewed' : 'Active'} • {new Date(activity.timestamp).toLocaleTimeString()}
+                                                    </span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            ) : isGlobalTab ? (
                                 <div className={styles.itemCard}>
                                     {data[activeTab] && Object.entries(data[activeTab]).map(([key, value]: [string, any]) => (
                                         <div key={key} className={styles.fieldGroup}>
